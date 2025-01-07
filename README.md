@@ -1,54 +1,56 @@
 # Hate Speech Profiling on Reddit
 
-This repository contains the data and code used for detecting and analyzing hate speech on Reddit. It integrates data collection, preprocessing, and classification workflows for effective hate speech detection using machine learning and NLP techniques.
+This repository provides tools and data for analyzing hate speech on Reddit. It includes data collection, preprocessing, and machine learning workflows to classify and analyze online discourse.
 
 ## Repository Structure
 
 
-### 1. `data/`
-- **Description**: This folder contains sample JSON files representing the structure of Reddit data collected for analysis.
-- **Structure of JSON files**:
-  - `Post information`: Includes title, unique ID, URL, author, score, comment count, and timestamp.
-  - `Comment details`: Nested structure for comments with fields such as comment body, score, and timestamp.
+### Key Components
 
-### 2. `Ethos_Dataset_Binary.csv`
-- **Description**: A binary-labeled dataset sourced from the ETHOS hate speech detection project.
-- **Classes**:
-  - Hate Speech
-  - Non-Hate Speech
-- **Purpose**: Serves as the primary training and evaluation dataset for the classification models.
+#### `data/`
+- **Description**: Contains sample JSON files representing Reddit data. 
+- **Structure**:
+  - Posts: Title, unique ID, author, timestamp, etc.
+  - Comments: Nested comment structure with metadata.
 
-### 3. `data_processing.ipynb`
-- **Purpose**: Executes classification workflows and visualizes the ETHOS dataset.
-- **Key Features**:
-  - **Hate Speech Distribution**: Displays a pie chart of the hate speech vs. non-hate speech distribution in the ETHOS dataset.
-  - **Classification Models**: Implements and evaluates a variety of models, including:
+#### `Ethos_Dataset_Binary.csv`
+- **Source**: ETHOS hate speech dataset.
+- **Details**:
+  - Each entry has a numerical score ranging from `0` to `1`.
+  - **Score Meaning**:
+    - Scores closer to `1` indicate higher likelihood of hate speech.
+    - Scores closer to `0` indicate non-hate speech.
+  - Binary classification is determined using a threshold (e.g., `0.5`).
+- **Purpose**: Used for training and testing machine learning models.
+
+#### `data_processing.ipynb`
+- **Purpose**: Performs data preprocessing, model training, and analysis.
+- **Features**:
+  - **Hate Speech Distribution**: Visualizes the dataset distribution via a pie chart.
+  - **Models Implemented**:
     - Naive Bayes + Bi-Gram
+    - Logistic Regression + TF-IDF
+    - SVM + n-Gram
+    - Random Forest + TF-IDF
+    - LSTM + TF-IDF
+    - CNN + TF-IDF
     - DistilBERT
-    - Logistic Regression with TF-IDF
     - GPT-2
     - LLAMA 2
-    - LSTM with TF-IDF
-    - CNN with TF-IDF
-    - SVM with n-Gram
-    - Random Forest with TF-IDF
-  - **Performance Comparison**: Barplot comparing weighted F1-scores of all classifiers to identify the best-performing model.
-  - **Subreddit Analysis**: Barplot showcasing the number of hate speech instances per subreddit.
-  - **User Analysis**: Creates a table of top users contributing to hate speech.
+  - **Performance Metrics**: Compares models using weighted F1-scores.
+  - **Subreddit Insights**: Barplots of hate speech instances per subreddit.
+  - **User Analysis**: Identifies top contributors of hate speech.
 
-### 4. `get_data_reddit.ipynb`
-- **Purpose**: Scrapes Reddit posts and comments and preprocesses them for analysis.
-- **Key Features**:
-  - Targets specific subreddits known for polarizing content.
-  - Collects data in a structured JSON format.
-  - Cleans and preprocesses data during collection by:
-    - Removing markdown formatting, hashtags, and spoilers.
-    - Organizing comments and metadata in a ready-to-use format.
-  - Outputs cleaned JSON files directly for further processing.
+#### `get_data_reddit.ipynb`
+- **Purpose**: Collects and preprocesses Reddit data.
+- **Features**:
+  - Targets specific subreddits.
+  - Cleans raw data (removes markdown, spoilers, hashtags, etc.).
+  - Outputs structured and clean JSON files for analysis.
 
-## Usage Instructions
+## How to Use
 
-1. Clone the repository:
+1. **Clone the Repository**:
    ```bash
    git clone https://github.com/your-repo/hate-speech-profiling.git
    cd hate-speech-profiling
