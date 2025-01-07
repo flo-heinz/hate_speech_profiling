@@ -19,16 +19,22 @@ This repository contains the data and code used for detecting and analyzing hate
 - **Purpose**: Serves as the primary training and evaluation dataset for the classification models.
 
 ### 3. `data_processing.ipynb`
-- **Purpose**: Executes the classification workflows and visualizes the dataset distribution.
+- **Purpose**: Executes classification workflows and visualizes the ETHOS dataset.
 - **Key Features**:
-  - Loads and preprocesses data from the ETHOS dataset or JSON files.
-  - Implements various machine learning classifiers, including:
-    - Naive Bayes
-    - Support Vector Machines (SVM)
-    - Logistic Regression
-    - Deep Learning models (e.g., DistilBERT, LSTM)
-  - Displays the distribution of hate speech vs. non-hate speech instances in the ETHOS dataset.
-  - Evaluates models using metrics such as weighted F1-scores.
+  - **Hate Speech Distribution**: Displays a pie chart of the hate speech vs. non-hate speech distribution in the ETHOS dataset.
+  - **Classification Models**: Implements and evaluates a variety of models, including:
+    - Naive Bayes + Bi-Gram
+    - DistilBERT
+    - Logistic Regression with TF-IDF
+    - GPT-2
+    - LLAMA 2
+    - LSTM with TF-IDF
+    - CNN with TF-IDF
+    - SVM with n-Gram
+    - Random Forest with TF-IDF
+  - **Performance Comparison**: Barplot comparing weighted F1-scores of all classifiers to identify the best-performing model.
+  - **Subreddit Analysis**: Barplot showcasing the number of hate speech instances per subreddit.
+  - **User Analysis**: Creates a table of top users contributing to hate speech.
 
 ### 4. `get_data_reddit.ipynb`
 - **Purpose**: Scrapes Reddit posts and comments and preprocesses them for analysis.
