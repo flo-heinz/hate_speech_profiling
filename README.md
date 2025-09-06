@@ -144,21 +144,10 @@ Plots available in `data/outputs/figures/`:
 
 ---
 
-## Roadmap
-- Combine few-shot and Chain-of-Stance for hybrid prompting  
-- Explore semi-supervised data augmentation  
-- Evaluate smaller/faster LLMs with quantization  
-- Integrate contextual cues (citation networks, discourse structure)  
 
----
 
-## License
-Specify your license (e.g., MIT, Apache-2.0).
 
----
 
-## Citation
-Heinz, F. (2025). *Stance Detection Approaches for Between-Document Analysis*. Programming Project Report.
 
 
 
